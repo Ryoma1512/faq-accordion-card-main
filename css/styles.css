@@ -1,0 +1,168 @@
+:root{
+    /* Text */
+--Verydarkdesaturatedblue: hsl(238, 29%, 16%);
+--Softred: hsl(14, 88%, 65%);
+    /* Background Gradient */
+--Softviolet: hsl(273, 75%, 66%);
+--Softblue: hsl(240, 73%, 65%);
+    /* Neutral Text */
+--Verydarkgrayishblue: hsl(237, 12%, 33%);
+--Darkgrayishblue: hsl(240, 6%, 50%);
+    /* Dividers */
+--Lightgrayishblue: hsl(240, 5%, 91%);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+body{
+    background: linear-gradient(var(--Softviolet), var(--Softblue));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 930px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: white;
+    border-radius: 1rem;
+    margin: 1.5rem;
+}
+
+.image{
+    position: relative;
+    padding: 2.5rem 0;
+    z-index: 0;
+}
+
+.pattern{
+    position: absolute;
+    top: -19rem;
+    left: -36rem;
+    z-index: -1;
+}
+
+.outer{
+    position: absolute;
+    top: 12rem;
+    left: -6rem;
+}
+
+.inner picture{
+    margin-left: -5rem;
+}
+
+.inner{
+    overflow: hidden;
+}
+
+.faq{
+    padding: 1.5rem;
+}
+
+.faq h1{
+    color: var(--Verydarkdesaturatedblue);
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+.faq > div{
+    border-bottom: 1px solid var(--Lightgrayishblue);
+}
+
+.faq span{
+    float: right;
+    transition: 0.4s;
+}
+
+label{
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1rem 1rem 0;
+    color: var(--Verydarkgrayishblue) ;
+}
+
+label:hover{
+    color: var(--Softred);
+}
+
+input{
+    display: none;
+}
+
+.content{
+    padding: 0.2rem 0;
+    color: var(--Darkgrayishblue);
+    font-size: 0.9rem;
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+input:checked ~ .content{
+    height: 4rem;
+    opacity: 1;
+}
+
+input:checked ~ label{
+    color: var(--Verydarkdesaturatedblue);
+    font-weight: 700;
+}
+
+input:checked ~ label span{
+    transform: rotate(180deg);
+    transition: 0.4s;
+}
+
+.attribution{
+    position: absolute;
+    top: 38rem;
+}
+
+/* Mobile Design */
+@media screen and (max-width:890px){
+    .container{
+        max-width:27rem;
+        grid-template-columns: auto;
+        margin-top: 6rem;
+    }
+
+    .image{
+        padding: 0;
+        margin: auto;
+        margin-top: -6.5rem;
+    }
+
+    .inner{
+        overflow: visible;
+    }
+
+    .outer{
+        display: none;
+    }
+
+    .pattern{
+        top: 6.25rem;
+        left: -3.125rem;
+    }
+
+    .faq h1{
+        text-align: center;
+        }
+    
+    .attribution{
+        top: 48rem;
+    }
+
+}
+
